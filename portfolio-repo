@@ -1,0 +1,31 @@
+@@ -22,6 +22,17 @@ const Carousel = () => {
+    let [currentPosition, setCurrentPosition] = useState(0); // Initial slide index value
+    let currentSlide = slides[currentPosition]; // variable index value we can reference later
+
+    // setInterval(() => {
+    //     arrowRightClick();
+    // }, 10000);
+
+    // useEffect(() => {
+    //   const interval = setInterval(() => {
+    //     arrowRightClick();
+    //   }, 1000);
+    //   return () => clearInterval(interval);
+    // }, []);
+
+    const arrowRightClick = () => {
+        currentPosition !== slides.length -1 ? // Check index length
+        setCurrentPosition(currentPosition + 1) : setCurrentPosition(currentPosition = 0);
+ 5  mitch-portfolio/src/components/LocalWeather.js 
+@@ -12,7 +12,10 @@ const LocalWeather = () => {
+
+    const axiosGet = () => {
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Menomonee Falls,us&APPID=${process.env.REACT_APP_WEATHER_KEY}`)
+        .then(data => setWeather(data.data));
+        .then(data => setWeather(data.data))
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+
+    return (
